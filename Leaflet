@@ -1,0 +1,32 @@
+cycle7$Time <- round(cycle7$Time)
+cycle7 <- cycle7 %>% mutate(popup_info=paste(start_station_name,"<br/>",end_station_name,"<br/>",rideable_type,"<br/>",Time))
+######### Classic ###############
+cycle12 <- cycle7 %>% select(rideable_type,start_station_name,end_station_name,Time,start_lat,start_lng, popup_info) %>% 
+ group_by(rideable_type, start_station_name) %>% 
+  filter (rideable_type=="classic_bike") %>% 
+  slice(which.max(Time))
+colours <- "red"
+pal <- colorFactor(colours,cycle12$rideable_type)
+leaflet(cycle12) %>% addProviderTiles("CartoDB.Positron") %>% addCircleMarkers(data = cycle12, lat = ~start_lat, lng = ~start_lng, radius = ~8, 
+                                              popup = ~popup_info,color = ~pal(rideable_type))
+
+############ Electric  ################
+cycle13 <- cycle7 %>% select(rideable_type,start_station_name,end_station_name,Time,start_lat,start_lng, popup_info) %>% 
+group_by(rideable_type, start_station_name) %>% 
+  filter (rideable_type=="electric_bike") %>% 
+slice(which.max(Time)) 
+colours <- "orange"
+pal <- colorFactor(colours,cycle13$rideable_type)
+leaflet(cycle13) %>% addProviderTiles("CartoDB.Positron") %>% addCircleMarkers( lat = ~start_lat, lng = ~start_lng, radius = ~8, 
+                                                                          popup = ~popup_info,color = ~pal(rideable_type))
+
+################### Docked ####################
+cycle14 <- cycle7 %>% select(rideable_type,start_station_name,end_station_name,Time,start_lat,start_lng, popup_info) %>% 
+  group_by(start_station_name) %>% 
+  filter (rideable_type=="docked_bike") %>% 
+  slice(which.max(Time)) 
+colours <- "royalblue"
+pal <- colorFactor(colours,cycle14$rideable_type)
+leaflet(cycle14) %>% addProviderTiles("CartoDB.Positron") %>% addCircleMarkers( lat = ~start_lat, lng = ~start_lng, radius = ~8, 
+                                                                                popup = ~popup_info,color = ~pal(rideable_type))
+
