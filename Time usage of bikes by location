@@ -1,0 +1,16 @@
+cycle7 <- cycle2 %>%filter (start_station_name=="Streeter Dr & Grand Ave" | start_station_name=="Lake Shore Dr & Monroe St" |
+                    start_station_name=="Millennium Park" | start_station_name=="Michigan Ave & Oak St" |
+                    start_station_name=="Lake Shore Dr & North Blvd" |start_station_name=="Theater on the Lake" |start_station_name=="Shedd Aquarium" |
+                    start_station_name=="Indiana Ave & Roosevelt Rd " |start_station_name=="Wells St & Concord Ln" |start_station_name=="Michigan Ave & Lake St" |
+                    start_station_name=="Clark St & Lincoln Ave" |start_station_name=="Clark St & Elm St" |start_station_name=="Dusable Harbor" |start_station_name=="Buckingham Fountain" |
+                    start_station_name=="Michigan Ave & Washington St ") %>% filter(member_casual=='casual') 
+View(cycle7)
+cycle7$Time <- difftime(cycle7$ended_at,cycle7$started_at, units ="mins") 
+
+cycle8 <- ggplot(cycle7,aes(x=start_station_name,y=Time))+
+  geom_boxplot(fill="#BBE1FA")+
+  labs(title = "Usage Time Distribution",x="Departure Locations",y="Time(mins)")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"))+
+  geom_jitter(width = 0.2)+
+  coord_flip(ylim=c(0,120)) 
+cycle8
