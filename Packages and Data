@@ -1,0 +1,16 @@
+######## Packages Used ##########
+library(tidyverse)
+library(plyr)
+library(ggplot2)
+library(readxl)
+library(tidyr)
+library(leaflet)
+
+######### Data Preparation #########
+my_files <- list.files(pattern = "*.xls") #to list the xls files in the folder
+cycle = lapply(my_files, function(i) {
+   x=read_excel(i, sheet = 1)
+   x$file=i # this is to add a file column to show from which file it is 
+   x
+})
+cycle=do.call("rbind.data.frame",cycle) #binding by row for all the xls files
