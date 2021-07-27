@@ -1,0 +1,13 @@
+
+############## Missing Values #######################
+Missing <- data.frame(colSums(is.na(cycle)))
+cycle1<- as.data.frame(cycle)
+Missing_value <- data.frame("Column_Names"=c( "start_station_name","start_station_id","end_station_name","end_station_id",
+                                     "end_lat","end_lng","Other"),"Missing_Values"=c(362012,362635,400529,400988,5233,5233,0))
+options(repr.plot.width=1, repr.plot.height=0.75)
+MS <- ggplot(Missing_value, aes(x=Column_Names, y=Missing_Values)) + 
+  geom_bar(fill="#3282B8", col="gray8", stat="identity", width=0.7) + 
+  geom_text(aes(label=Missing_Values,vjust=-0.3)) + 
+  labs(title="Missing-Values",x="Column_Names",y="Missing-Values")+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"))
+MS
