@@ -1,0 +1,14 @@
+cycle9 <- cycle7 %>% select (start_station_name, end_station_name, rideable_type) %>%
+  group_by(rideable_type) %>% 
+  summarize(count=count(rideable_type)) %>% 
+  arrange(desc(count$freq))
+cycle9 
+cycle9$count$x -> biketype
+cycle9$count$freq -> bikenumber
+options(scipen = 1000)
+cycle10 <- ggplot(cycle9,aes(x=biketype,y=bikenumber))+
+  geom_bar(stat = "identity",position = "dodge",fill="steelblue3")+
+  labs(title = "Bike Types Used",x="Types",y="Casual Users")+
+  geom_text(aes(label=bikenumber),hjust=0.5,vjust=4,position = position_dodge(width=1))+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"),panel.background = element_blank())
+cycle10
