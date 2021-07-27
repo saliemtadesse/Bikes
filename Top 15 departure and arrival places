@@ -1,0 +1,37 @@
+cycle2 <- na.omit(cycle1)
+cycle3 <- cycle2 %>% select (start_station_name, end_station_name, member_casual) %>%
+     group_by(start_station_name,end_station_name,member_casual) %>% 
+     filter (member_casual=='casual') %>% 
+    summarize(count=count(start_station_name)) %>% 
+    arrange(desc(count$freq)) %>% 
+    head(15)
+cycle3
+cycle3$count$x -> startname3
+cycle3$count$freq -> startfreq3
+cycle4 <- cycle2 %>% select (start_station_name, end_station_name, member_casual) %>% 
+  group_by(start_station_name,end_station_name,member_casual) %>% 
+  filter (member_casual=='casual') %>% 
+  summarize(count=count(end_station_name)) %>% 
+  arrange(desc(count$freq)) %>% 
+  head(15)
+cycle4
+
+cycle5 <- ggplot(cycle3,aes(x=startname3,y=startfreq3))+
+  geom_bar(stat = "identity",position = "dodge",fill="steelblue3")+
+  coord_flip()+
+  labs(title = "Top Departure Locations",x="Locations",y="Casual Users")+
+  geom_text(aes(label=startfreq3),hjust=-0.1,vjust=1,position = position_dodge(width=1))+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"),panel.background = element_blank())
+cycle5
+
+cycle4$count$x -> startname4
+cycle4$count$freq -> startfreq4
+cycle6 <- ggplot(cycle4,aes(x=startname4,y=startfreq4))+
+  geom_bar(stat = "identity",position = "dodge",fill="steelblue3")+
+  coord_flip()+
+  labs(title = "Top Arrival Locations",x="Locations",y="Casual Users")+
+  geom_text(aes(label=startfreq3),hjust=-0.1,vjust=1,position = position_dodge(width=1))+
+  theme(plot.title=element_text(hjust=0.5,face="bold",colour="black"),panel.background = element_blank())
+cycle6
+
+###################################################################################################################
