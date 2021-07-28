@@ -21,3 +21,4 @@ https://rpubs.com/Mitubrightstar9/794152
 
 ## Casual docked bike users
 https://rpubs.com/Mitubrightstar9/794153
+<img width="609" alt="dock" src="https://user-images.githubusercontent.com/47319011/127249036-9bba0933-94de-4eaa-90d9-8bcbe10b53ba.png">
