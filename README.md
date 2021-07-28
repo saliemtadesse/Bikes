@@ -1,4 +1,25 @@
-# Bikes
+# Bikes Exploratory Data Analysis
+**_Casual Bike Users in Chicago_**
+
+**Project Overview:**
+This project uses a fictious data provided by google for completing the google data analytics course case study. The main task is to analyze if causal bike users in chicago city for certain bike types could be converted in to members (Members are more profitable than casual bike users).
+
+# Contents:
+1. Clean data
+
+#### Exploratory Data Analysis:
+2. Missing Values
+3. Top 15 departure locations by casual users (bar graph)
+4. Top 15 arrival location by casual users (bar graph)
+5. Casual users and time (mins) of bike usage (boxplot)
+6. Caual bike users by type of bike (bar plot)
+7. Maps for casual users by bike type, departure, arrival and usage time (Leaflet)
+
+# Code and Resources Used
+* **R version:** 3.6.2
+* **Packages:** (httr, xml2, rvest, tidyverse, purrr, ggpubr, janitor, kableExtra, readr)
+
+  
 ## Missing Values
 <img width="588" alt="Missing" src="https://user-images.githubusercontent.com/47319011/127246077-87f76c21-e22e-4c09-ab6f-13eaf1f39e9d.png">
 
