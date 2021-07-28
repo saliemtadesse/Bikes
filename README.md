@@ -14,3 +14,6 @@
 ## Casual classic bike users
 https://rpubs.com/Mitubrightstar9/794149
 <img width="611" alt="classic" src="https://user-images.githubusercontent.com/47319011/127248296-968c1551-c04b-4677-9f53-1f78ae316256.png">
+
+## Casual electric bike users
+https://rpubs.com/Mitubrightstar9/794152
