@@ -10,3 +10,8 @@
 
 ## Bike types by number of users
 <img width="605" alt="Bikes" src="https://user-images.githubusercontent.com/47319011/127246939-7d4282ff-9fee-456d-8241-45347d1fa6f1.png">
+
+## Casual classic bike users
+https://rpubs.com/Mitubrightstar9/794149
+
+
