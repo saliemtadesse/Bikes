@@ -17,3 +17,7 @@ https://rpubs.com/Mitubrightstar9/794149
 
 ## Casual electric bike users
 https://rpubs.com/Mitubrightstar9/794152
+<img width="610" alt="Screen Shot 2021-07-27 at 6 23 14 PM" src="https://user-images.githubusercontent.com/47319011/127248676-de94ab6d-6c40-46c6-86e9-a7e8a12f9231.png">
+
+## Casual docked bike users
+https://rpubs.com/Mitubrightstar9/794153
